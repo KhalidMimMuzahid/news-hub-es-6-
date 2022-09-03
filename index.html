@@ -83,20 +83,6 @@
       </section>
     </header> 
     <main>
-      <section>
-        <div class="spinnering text-center mt-5">
-          <button class="btn btn-dark px-5 py-4  fs-3 fw-bold" type="button" disabled>
-            <span class="spinner-grow spinner-grow-md me-2" role="status" aria-hidden="true"></span>
-            <span class="spinner-grow spinner-grow-md me-2" role="status" aria-hidden="true"></span>
-            <span class="spinner-grow spinner-grow-md me-2" role="status" aria-hidden="true"></span>
-            Loading
-            
-            <span class="spinner-grow spinner-grow-md ms-2" role="status" aria-hidden="true"></span>
-            <span class="spinner-grow spinner-grow-md ms-2" role="status" aria-hidden="true"></span>
-            <span class="spinner-grow spinner-grow-md ms-2" role="status" aria-hidden="true"></span>
-          </button>
-        </div>
-      </section>
       <section id="modal-parent">
         <!-- modal start here  -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
@@ -137,6 +123,12 @@
       <!-- modal ends here  -->
       </section>
 
+      <section id="warning-message" class="my-1 container d-none">
+        <div id="warning-bg" class="py-1 text-center">
+          <h1 id="warning-message-display"></h1>
+        </div>
+      </section>
+
 
       <section class="">
         <!-- By category news here  start -->
@@ -163,6 +155,21 @@
 
         </div>
         <!-- By category news here  ends -->
+      </section>
+      
+      <section>
+        <div id="spinnering" class="text-center mt-5 d-none" >
+          <button class="btn btn-dark px-5 py-4  fs-3 fw-bold" type="button" disabled>
+            <span class="spinner-grow spinner-grow-md me-2" role="status" aria-hidden="true"></span>
+            <span class="spinner-grow spinner-grow-md me-2" role="status" aria-hidden="true"></span>
+            <span class="spinner-grow spinner-grow-md me-2" role="status" aria-hidden="true"></span>
+            Loading
+            
+            <span class="spinner-grow spinner-grow-md ms-2" role="status" aria-hidden="true"></span>
+            <span class="spinner-grow spinner-grow-md ms-2" role="status" aria-hidden="true"></span>
+            <span class="spinner-grow spinner-grow-md ms-2" role="status" aria-hidden="true"></span>
+          </button>
+        </div>
       </section>
     </main>
     <script src="jsFile/app.js"></script>

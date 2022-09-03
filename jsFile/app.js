@@ -23,9 +23,36 @@ const getNewsById = async (newsId) =>{
 
 const setCategory = (data, isHome=false) =>{
     // console.log('function category',data)
+    if(data.length===0){
+        const spinnering= document.getElementById('spinnering');
+        spinnering.classList.add('d-none');
+        const warningBG = document.getElementById('warning-bg');
+        warningBG.classList.remove('bg-secondary');
+        warningBG.classList.add('bg-warning');
+        const warningMessage = document.getElementById('warning-message');
+        warningMessage.classList.remove('d-none');
+        const warningMessageDisplay = document.getElementById('warning-message-display');
+        warningMessageDisplay.innerText='No News Found';
+        return data.length;
+        
+    }
+    else{
+        const newsCount= data.length;
+        const warningBG = document.getElementById('warning-bg');
+        warningBG.classList.remove('bg-warning');
+        warningBG.classList.add('bg-secondary');
+        const warningMessage = document.getElementById('warning-message');
+        warningMessage.classList.remove('d-none');
+        const warningMessageDisplay = document.getElementById('warning-message-display');
+        warningMessageDisplay.innerText=`Total ${newsCount} News Found`;
+    }
     const newsContainer = document.getElementById('news-container');
     if(!(isHome)){
         newsContainer.textContent='';
+    }
+    else{
+        const warningMessage = document.getElementById('warning-message');
+        warningMessage.classList.add('d-none');
     }
     data.forEach(news => {
         // console.log(news._id);
@@ -62,6 +89,9 @@ const setCategory = (data, isHome=false) =>{
         </div>
         `;
         newsContainer.appendChild(eachCard);
+        const spinnering= document.getElementById('spinnering');
+        spinnering.classList.add('d-none');
+        return data.length;
     });
 
 }
@@ -93,17 +123,29 @@ const displayModal= id =>{
 }
 
 const allCategories = (id, isHome= false) =>{
+    const spinnering= document.getElementById('spinnering');
+    spinnering.classList.remove('d-none');
+    const newsContainer = document.getElementById('news-container');
+    newsContainer.textContent='';
+    const warningMessage = document.getElementById('warning-message');
+        warningMessage.classList.add('d-none');
     getCategoryById(id, isHome)
 }
 
 
 const home= ()=>{
+    const spinnering= document.getElementById('spinnering');
+    spinnering.classList.remove('d-none');
+    const newsContainer = document.getElementById('news-container');
+    newsContainer.textContent='';
+    const isHome= true;
+    var allNews =0;
     for(let i = 1; i<=8 ; i++){
         // console.log(`0${i}`)
         const isHome= true;
-        allCategories(`0${i}`, isHome);
+        allNews = allNews + allCategories(`0${i}`, isHome)
     }
-    const newsContainer = document.getElementById('news-container');
-    newsContainer.textContent='';
+    console.log(allNews)
+    
 }
 home();
