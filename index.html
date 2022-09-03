@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>News Mirror24</title>
+    <title>News Mirror24xxx</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -51,7 +51,7 @@
             <div class="container home-bar">
                 <div id="categories" class="row row-cols-auto">
                     <div class="col" href="#">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="#" onclick="home()">Home</a>
                     </div>
                     <div class="col">
                         <a class="nav-link" href="#"  onclick="allCategories('01')"> Breaking News</a>
@@ -79,13 +79,69 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> 
       </section>
-    </header>
+    </header> 
     <main>
+      <section>
+        <div class="spinnering text-center mt-5">
+          <button class="btn btn-dark px-5 py-4  fs-3 fw-bold" type="button" disabled>
+            <span class="spinner-grow spinner-grow-md me-2" role="status" aria-hidden="true"></span>
+            <span class="spinner-grow spinner-grow-md me-2" role="status" aria-hidden="true"></span>
+            <span class="spinner-grow spinner-grow-md me-2" role="status" aria-hidden="true"></span>
+            Loading
+            
+            <span class="spinner-grow spinner-grow-md ms-2" role="status" aria-hidden="true"></span>
+            <span class="spinner-grow spinner-grow-md ms-2" role="status" aria-hidden="true"></span>
+            <span class="spinner-grow spinner-grow-md ms-2" role="status" aria-hidden="true"></span>
+          </button>
+        </div>
+      </section>
+      <section id="modal-parent">
+        <!-- modal start here  -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header d-flex flex-column">
+                      <div>
+                          <img id="img-title" class="img-fluid rounded-start" alt="..." />
+                      </div>
+                      <h3 class="modal-title" id="staticBackdropLabel"></h3>
+                  </div>
+                  <div class="modal-body">
+                    <div>
+                      <p id="news-details" class="" style="text-align:justify"></p> <hr>
+                    </div>
+                    <div class="">
+                      <div class="d-flex justify-content-between">
+                        <div class=" d-flex">
+                          <img id="author-photo" class="img-fluid image-author" alt="..." />
+                          <p class="ms-2" id="author-name"></p>
+                        </div>
+                        <div class=" d-flex">
+                          <p class="ms-2" id="publish-date"></p>
+                        </div>
+                        <div class="">
+                          <i class="fa-solid fa-eye"></i>
+                          <span id="total-view"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- modal ends here  -->
+      </section>
+
+
       <section class="">
         <!-- By category news here  start -->
         <div id="news-container">
+          
 
 
 

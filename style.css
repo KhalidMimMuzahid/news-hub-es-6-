@@ -11,3 +11,8 @@
     width: 30px;
     border-radius: 20px;
   }
+  /* .card-text{
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+  } */
