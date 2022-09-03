@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+  }
+  .portal-card{
+    margin-top: 30px;
+  }
+  .image-author{
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+  }
