@@ -1,14 +1,24 @@
 const getCategoryById = async (categoryId, isHome=false) =>{
     const url= `https://openapi.programming-hero.com/api/news/category/${categoryId}`
-    const response =await fetch(url);
-    const data = await response.json();
-    setCategory(data.data , isHome);
+    try {
+        const response =await fetch(url);
+        const data = await response.json();
+        setCategory(data.data , isHome);
+    }
+    catch(error){
+        console.log('There have this error \n',error);
+    }
 }
 const getNewsById = async (newsId) =>{
     const url= `https://openapi.programming-hero.com/api/news/${newsId}`
-    const response =await fetch(url);
-    const data = await response.json();
-    setNews(data.data[0]);
+    try{
+        const response =await fetch(url);
+        const data = await response.json();
+        setNews(data.data[0]);
+    }
+    catch(error){
+        console.log('There have this error \n',error)
+    }
 }
 
 const setCategory = (data, isHome=false) =>{
