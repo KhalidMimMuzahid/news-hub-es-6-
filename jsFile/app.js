@@ -147,7 +147,7 @@ const setNav = data =>{
         const categoryName = document.createElement('div');
         categoryName.classList.add('col');
         categoryName.innerHTML=`
-        <button class="nav-link btn btn-secondary text-white px-1 py-2" href="#" onclick="allCategories('${category.category_id}','${this}')">${category.category_name}</button>
+        <button class="nav-link btn btn-secondary text-white px-1 py-2" onclick="allCategories('${category.category_id}','${this}')">${category.category_name}</button>
         `;
         navBar.appendChild(categoryName)
     })
