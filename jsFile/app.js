@@ -124,6 +124,12 @@ const displayModal= id =>{
 }
 
 const allCategories = (id, isHome) =>{
+
+    const blog= document.getElementById('blog-faq');
+    blog.classList.add('d-none');
+    const allNews= document.getElementById('all-news');
+    allNews.classList.remove('d-none')
+
     const spinnering= document.getElementById('spinnering');
     spinnering.classList.remove('d-none');
     const newsContainer = document.getElementById('news-container');
@@ -161,3 +167,13 @@ const defaultNews = ()=>{
     allCategories('01');
 }
 defaultNews();
+
+const newBlog= document.getElementById('blog-ques');
+newBlog.addEventListener('click', ()=>{
+    const blog= document.getElementById('blog-faq');
+    blog.classList.remove('d-none');
+    const warningMessage = document.getElementById('warning-message');
+    warningMessage.classList.add('d-none');
+    const allNews= document.getElementById('all-news');
+    allNews.classList.add('d-none')
+})
