@@ -47,13 +47,14 @@ const setCategory = (data, isHome=false) =>{
         warningMessageDisplay.innerText=`Total ${newsCount} News Found`;
     }
     const newsContainer = document.getElementById('news-container');
-    if(!(isHome)){
-        newsContainer.textContent='';
-    }
-    else{
-        const warningMessage = document.getElementById('warning-message');
-        warningMessage.classList.add('d-none');
-    }
+    newsContainer.textContent='';
+    // if(!(isHome)){
+    //     newsContainer.textContent='';
+    // }
+    // else{
+    //     const warningMessage = document.getElementById('warning-message');
+    //     warningMessage.classList.add('d-none');
+    // }
     data.forEach(news => {
         // console.log(news._id);
         const xxx =()=>{
@@ -122,30 +123,44 @@ const displayModal= id =>{
     getNewsById(id);
 }
 
-const allCategories = (id, isHome= false) =>{
+const allCategories = (id, isHome) =>{
     const spinnering= document.getElementById('spinnering');
     spinnering.classList.remove('d-none');
     const newsContainer = document.getElementById('news-container');
     newsContainer.textContent='';
     const warningMessage = document.getElementById('warning-message');
         warningMessage.classList.add('d-none');
-    getCategoryById(id, isHome)
+    getCategoryById(id)
+    console.log(isHome)
 }
 
 
-const home= ()=>{
-    const spinnering= document.getElementById('spinnering');
-    spinnering.classList.remove('d-none');
-    const newsContainer = document.getElementById('news-container');
-    newsContainer.textContent='';
-    const isHome= true;
-    var allNews =0;
-    for(let i = 1; i<=8 ; i++){
-        // console.log(`0${i}`)
-        const isHome= true;
-        allNews = allNews + allCategories(`0${i}`, isHome)
-    }
-    console.log(allNews)
+const setNav = data =>{
+    const navBar = document.getElementById('categories');
+    data.forEach(category =>{
+        const categoryName = document.createElement('div');
+        categoryName.classList.add('col','cetagory-name-color');
+        categoryName.innerHTML=`
+        <button class="nav-link btn btn-secondary text-white px-1 py-2" href="#" onclick="allCategories('${category.category_id}','${this}')">${category.category_name}</button>
+        `;
+        navBar.appendChild(categoryName)
+    })
     
 }
-home();
+
+const defaultNews = ()=>{
+    const url= 'https://openapi.programming-hero.com/api/news/categories';
+    try {
+        fetch(url)
+        .then(response => response.json())
+        .then(data => setNav(data.data.news_category))
+    }
+    catch(error){
+        console.log('There have this error \n',error);
+    }
+    allCategories('01');
+}
+defaultNews();
+// const catagories= document.getElementById('categories');
+// const eachCetagory = catagories.querySelectorAll('.cetagory-name-color');
+// console.log(eachCetagory)
