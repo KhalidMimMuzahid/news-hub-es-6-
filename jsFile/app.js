@@ -139,7 +139,7 @@ const setNav = data =>{
     const navBar = document.getElementById('categories');
     data.forEach(category =>{
         const categoryName = document.createElement('div');
-        categoryName.classList.add('col','cetagory-name-color');
+        categoryName.classList.add('col');
         categoryName.innerHTML=`
         <button class="nav-link btn btn-secondary text-white px-1 py-2" href="#" onclick="allCategories('${category.category_id}','${this}')">${category.category_name}</button>
         `;
@@ -161,6 +161,3 @@ const defaultNews = ()=>{
     allCategories('01');
 }
 defaultNews();
-// const catagories= document.getElementById('categories');
-// const eachCetagory = catagories.querySelectorAll('.cetagory-name-color');
-// console.log(eachCetagory)
